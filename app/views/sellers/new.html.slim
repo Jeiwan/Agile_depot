@@ -1,0 +1,28 @@
+.panel.panel-default.col-md-offset-3.col-md-6
+	.panel-head
+		h1 Sign up
+	.panel-body
+		- if @seller.errors.any?
+			p.text-danger = "#{@seller.errors.count} erorrs encountered!"
+		= form_for :seller, url: sellers_path, html: { class: 'form-horizontal' } do |f|
+			.form-group.row
+				= f.label :email, class: 'col-md-2'
+				.col-md-10
+					= f.email_field :email, class: 'form-control'
+					- @seller.errors.full_messages_for(:email).each do |e|
+						p.alert.alert-danger = e
+			.form-group.row
+				= f.label :password, class: 'col-md-2'
+				.col-md-10
+					= f.password_field :password, class: 'form-control'
+					- @seller.errors.full_messages_for(:password).each do |e|
+						p.alert.alert-danger = e
+			.form-group.row
+				= f.label :password_confirmation, class: 'col-md-2'
+				.col-md-10
+					= f.password_field :password_confirmation, class: 'form-control'
+					- @seller.errors.full_messages_for(:password_confirmation).each do |e|
+						p.alert.alert-danger = e
+			.form-group.row
+				.col-md-offset-2.col-md-10
+					= f.submit 'Sign up', class: 'btn btn-success'

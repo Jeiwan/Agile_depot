@@ -1,0 +1,20 @@
+.panel.panel-default.col-md-offset-3.col-md-6
+	.panel-head
+		h1 Log in
+	.panel-body
+		= form_tag sessions_path, html: { class: 'form-horizontal' } do
+			.form-group.row
+				= label_tag 'Email', nil, class: 'col-md-2'
+				.col-md-10
+					= email_field_tag 'email', nil, class: 'form-control'
+			.form-group.row
+				= label_tag 'Password', nil, class: 'col-md-2'
+				.col-md-10
+					= password_field_tag 'password', nil, class: 'form-control'
+			.form-group.row
+				= label_tag 'Password Confirmation', nil, class: 'col-md-2'
+				.col-md-10
+					= password_field_tag 'password_confirmation', nil, class: 'form-control'
+			.form-group.row
+				.col-md-offset-2.col-md-10
+					= submit_tag 'Log in', class: 'btn btn-success'
