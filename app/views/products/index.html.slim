@@ -1,0 +1,16 @@
+- page_title "Products"
+- current_page "products"
+section.b-products
+	- @products.each_with_index do |p, i|
+		.b-product__wrapper.col-md-4
+			article.b-product.panel.panel-default
+				.b-panel-body
+					h2.b-product__name
+						= link_to p.name, p
+					= link_to p do
+						img.b-product__image src="/assets/#{p.image}" alt=""/
+					p.b-product__description = p.description
+					div.b-product__footer
+						strong.b-product__price
+							em = "$#{p.price}" 
+						a.b-product__buy.btn.btn-success href="#" Buy this tasty fruit

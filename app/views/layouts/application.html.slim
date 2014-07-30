@@ -2,10 +2,20 @@ doctype html
 html lang="en"
 	head
 		meta charset="UTF-8"/
-		title Document
+		title = @page_title
 		= stylesheet_link_tag 'application', media: 'all'
 		= javascript_include_tag 'application'
 		= csrf_meta_tags
 	body.container
-		= yield
-	
+		nav.navbar.navbar-default role="navigation"
+		    .container-fluid
+			    .navbar-header
+			        a.navbar-brand href="/" Products
+		        .collapse.navbar-collapse
+			        ul.nav.navbar-nav
+				        li class=( 'active' if @current_page == "products" )
+				        	= link_to "Products", products_path
+				    ul.nav.navbar-right
+				    	li
+				    		p.navbar-text = "Want to sell? #{ link_to 'Sign up', '/'} or #{ link_to 'Log in', '/' }".html_safe
+  		= yield

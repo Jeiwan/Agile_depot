@@ -1,0 +1,10 @@
+heaer
+	h1
+		small
+			= link_to products_path do
+				span.glyphicon.glyphicon-arrow-left
+		|&nbsp;
+		= @product.name
+section.b-product-page
+	img.b-product-page__image src="/assets/#{@product.image}" alt=""/
+	blockquote = @product.description
