@@ -1,13 +1,15 @@
 Rails.application.routes.draw do
 
-  resources :products, only: [:index, :show]
+  get '/place_product' => 'products#new', as: 'place_product'
+  resources :products, only: [:index, :show, :create]
 
-  get '/sign_up' => 'sellers#new', as: :sign_up
-  get '/dashboard' => 'sellers#index', as: :dashboard
+  get '/signup' => 'sellers#new', as: 'signup'
+  get '/dashboard' => 'sellers#index', as: 'dashboard'
   resources :sellers, only: [:create]
 
+  get '/login' => 'sessions#new', as: 'login'
+  delete '/logout' => 'sessions#destroy', as: 'logout'
   resources :sessions, only: [:new, :create]
-  get '/log_in' => 'sessions#new', as: :log_in
 
   root "products#index"
 end

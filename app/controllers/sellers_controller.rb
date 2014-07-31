@@ -1,5 +1,6 @@
 class SellersController < ApplicationController
   def index
+    @products = current_user.products
   end
 
   def new
@@ -10,7 +11,7 @@ class SellersController < ApplicationController
   	@seller = Seller.new(params_seller)
 
   	if @seller.save
-  		redirect_to log_in_path, notice: 'Signed up!'
+  		redirect_to login_path, notice: 'Signed up!'
   	else
   		render "new"
   	end
@@ -19,6 +20,6 @@ class SellersController < ApplicationController
   private
 
   def params_seller
-  	params.require(:seller).permit(:email, :password, :password_confirmation)
+  	params.require(:seller).permit(:name, :email, :password, :password_confirmation)
   end
 end

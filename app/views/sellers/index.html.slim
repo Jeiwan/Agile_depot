@@ -1,1 +1,7 @@
-h1 = "Welcome #{session[:user_id]}!"
+h1 = "Welcome #{current_user.name}!"
+
+- if @products.count > 0
+	p You have some products!
+- else
+	p You have no products! It's time to add some!
+	= link_to 'Place Products', place_product_path, class: 'btn btn-success'

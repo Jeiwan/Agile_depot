@@ -6,6 +6,12 @@
 			p.text-danger = "#{@seller.errors.count} erorrs encountered!"
 		= form_for :seller, url: sellers_path, html: { class: 'form-horizontal' } do |f|
 			.form-group.row
+				= f.label :name, class: 'col-md-2'
+				.col-md-10
+					= f.text_field :name, class: 'form-control'
+					- @seller.errors.full_messages_for(:name).each do |e|
+						p.alert.alert-danger = e
+			.form-group.row
 				= f.label :email, class: 'col-md-2'
 				.col-md-10
 					= f.email_field :email, class: 'form-control'
