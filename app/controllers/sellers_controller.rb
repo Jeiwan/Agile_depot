@@ -1,4 +1,6 @@
 class SellersController < ApplicationController
+  before_action :check_if_logged_in, except: [:new, :create]
+
   def index
     @products = current_user.products
   end
@@ -21,5 +23,11 @@ class SellersController < ApplicationController
 
   def params_seller
   	params.require(:seller).permit(:name, :email, :password, :password_confirmation)
+  end
+
+  def check_if_logged_in
+    unless current_user
+      redirect_to root_path
+    end
   end
 end

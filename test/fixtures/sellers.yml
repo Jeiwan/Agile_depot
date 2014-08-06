@@ -1,11 +1,8 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
-one:
-  email: MyString
-  password_hash: MyString
-  password_salt: MyString
+jeiwan:
+  id: 1
+  email: me@jeiwan.ru
+  # password_digest: longpasswordhash
+  password_digest: <%= BCrypt::Password.create('dfgcvb') %>
 
-two:
-  email: MyString
-  password_hash: MyString
-  password_salt: MyString

@@ -1,13 +1,17 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
 one:
-  name: MyString
-  description: MyText
-  image: MyString
-  price: 9.99
+  id: 1
+  name: Banana
+  description: Tasty banana
+  image: banana.jpg
+  price: 1.20
+  seller_id: 1
 
 two:
-  name: MyString
-  description: MyText
-  image: MyString
-  price: 9.99
+  id: 2
+  name: Lime
+  description: Fresh lime
+  image: lime.jpg
+  price: 2.00
+  seller_id: 1
